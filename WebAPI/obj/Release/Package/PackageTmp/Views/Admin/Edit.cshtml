@@ -1,0 +1,19 @@
+﻿@model WebAPI.Models.Sach
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.MaSach)
+    <div class="form-group">
+        @Html.LabelFor(model => model.TenSach)
+        @Html.EditorFor(model => model.TenSach)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.GiaBan)
+        @Html.EditorFor(model => model.GiaBan)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.AnhBia)
+        @Html.EditorFor(model => model.AnhBia)
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+}

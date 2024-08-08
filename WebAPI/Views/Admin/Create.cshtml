@@ -1,0 +1,20 @@
+﻿@model WebAPI.Models.Sach
+
+<h2>Thêm sách mới</h2>
+
+@using (Html.BeginForm("Create", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="form-group">
+        <label for="TenSach">Tên Sách:</label>
+        @Html.TextBoxFor(model => model.TenSach, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label for="GiaBan">Giá Bán:</label>
+        @Html.TextBoxFor(model => model.GiaBan, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label for="AnhBia">Ảnh Bìa:</label>
+        <input type="file" name="AnhBia" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Lưu</button>
+}

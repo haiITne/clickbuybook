@@ -1,0 +1,32 @@
+﻿@model List<WebAPI.Models.Sach>
+
+<h2>Quản lý sách</h2>
+
+<p>
+    @Html.ActionLink("Thêm Sách mới", "Create", "Admin", new { area = "" }, new { @class = "nav-link" })
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tên Sách</th>
+            <th>Giá Bán</th>
+            <th>Ảnh Bìa</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.TenSach</td>
+                <td>@item.GiaBan</td>
+                <td><img src="@item.AnhBia" alt="Ảnh bìa" width="100" /></td>
+                <td>
+                    @Html.ActionLink("Sửa", "Edit", "Admin", new { id = item.MaSach }) |
+                    @Html.ActionLink("Xóa", "Delete", "Admin", new { id = item.MaSach })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

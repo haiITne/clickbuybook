@@ -1,0 +1,161 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .ft-nav-wrapper {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+        }
+
+        .ft-nav h4 {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .ft-nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+            .ft-nav ul li {
+                margin-bottom: 5px;
+            }
+
+                .ft-nav ul li a {
+                    color: #007bff;
+                    text-decoration: none;
+                }
+
+                    .ft-nav ul li a:hover {
+                        text-decoration: underline;
+                    }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/Home/Index">CLICK BUY BOOK</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <!-- Search Form -->
+                <form method="get" action="/Home/SearchBooks" class="form-inline mb-3">
+                    <input type="text" name="searchTerm" class="form-control mr-2" placeholder="Tìm kiếm sách...">
+                    <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+                </form>
+                <li class="nav-item active">
+                    @Html.ActionLink("Trang chủ", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
+                </li>
+                <li class="nav-item active">
+                    @Html.ActionLink("Sách", "ShowBook", "Home", new { area = "" }, new { @class = "nav-link" })
+                </li>
+                @if (Session["TaiKhoan"] == null)
+                {
+                    <li class="nav-item active">
+                        @Html.ActionLink("Đăng Nhập", "Login", "Home", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                }
+                else
+                {
+                    <li class="nav-item">
+                        <form method="post" action="@Url.Action("Logout", "Account")" class="form-inline">
+                            <button type="submit" class="btn btn-link nav-link">Đăng Xuất</button>
+                        </form>
+                    </li>
+                }
+                <li class="nav-item active">
+                    @Html.ActionLink("Giỏ Hàng", "Index", "Cart", new { area = "" }, new { @class = "nav-link" })
+                </li>
+                <li>
+                    <a class="nav-link" href="~/Content/images/Baocao.pdf" download>PDF</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div>
+        @RenderBody()
+    </div>
+
+    <div class="ft-nav-wrapper">
+        <div class="wrapper">
+            <div class="inner">
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-2">
+                        <div class="ft-nav">
+                            <h4>Liên kết nhanh</h4>
+                            <ul class="no-bullets">
+                                <li><a href="/collections/sach-thieu-nhi">Sách Thiếu Nhi</a></li>
+                                <li><a href="/collections/sach-co-chu-ki">Sách Chữ Ký</a></li>
+                                <li><a href="/collections/sach-gioi-han">Sách Giới Hạn</a></li>
+                                <li><a href="/collections/van-phong-pham">Văn Phòng Phẩm</a></li>
+                                <li><a href="/collections/top-sach-ban-chay-nhat">Sách Bán Chạy</a></li>
+                                <li><a href="/collections/combo-sach-hay">Combo Sách Hay</a></li>
+                                <li><a href="/pages/gifts">Gợi Ý Cho Bạn</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-2">
+                        <div class="ft-nav">
+                            <h4>Các bộ sưu tập</h4>
+                            <ul class="no-bullets">
+                                <li><a href="/collections/but-viet">Bút - Viết</a></li>
+                                <li><a href="/collections/dung-cu-hoc-sinh">Dụng Cụ Học Sinh</a></li>
+                                <li><a href="/collections/san-pham-ve-giay">Sản Phẩm Về Giấy</a></li>
+                                <li><a href="/collections/dung-cu-van-phong">Dụng Cụ Văn Phòng</a></li>
+                                <li><a href="/collections/dung-cu-ve">Dụng Cụ Vẽ</a></li>
+                                <li><a href="/collections/san-pham-dien-tu">Sản Phẩm Điện Tử</a></li>
+                                <li><a href="/collections/van-phong-pham-khac">Văn Phòng Phẩm Khác</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-2">
+                        <div class="ft-nav">
+                            <h4>Hỗ trợ khách hàng</h4>
+                            <ul class="no-bullets">
+                                <li><a href="/pages/chinh-sach-bao-mat">Chính sách bảo mật</a></li>
+                                <li><a href="/pages/huong-dan-mua-hang">Hướng dẫn mua hàng</a></li>
+                                <li><a href="/pages/phuong-thuc-thanh-toan">Phương thức thanh toán</a></li>
+                                <li><a href="/pages/phuong-thuc-van-chuyen">Phương thức vận chuyển</a></li>
+                                <li><a href="/pages/chinh-sach-bao-hanh">Chính sách bảo hành</a></li>
+                                <li><a href="/pages/chinh-sach-doi-tra">Chính sách đổi trả</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-2">
+                        <div class="ft-nav">
+                            <h4>Chăm sóc khách hàng</h4>
+                            <ul class="no-bullets">
+                                <li><a href="/pages/lien-he-ho-tro">Liên hệ hỗ trợ</a></li>
+                                <li><a href="/pages/he-thong-cua-hang">Hệ thống cửa hàng</a></li>
+                                <li><a href="/pages/tuyen-dung">Tin tuyển dụng</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-2">
+                        <div class="ft-nav">
+                            <h4>Liên hệ</h4>
+                            <ul class="no-bullets">
+                                <!-- Thêm các mục liên hệ ở đây nếu cần -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

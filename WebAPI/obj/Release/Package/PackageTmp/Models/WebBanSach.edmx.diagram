@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="931c55b86ba5476e9a49bd2207516fbc" Name="Diagram1">
+        <EntityTypeShape EntityType="WebBanSachModel.ChiTietDonHang" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebBanSachModel.DonHang" Width="1.5" PointX="3" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebBanSachModel.KhachHang" Width="1.5" PointX="0.75" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebBanSachModel.NhaXuatBan" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebBanSachModel.Sach" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebBanSachModel.TacGia" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebBanSachModel.ThamGia" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebBanSachModel.TheLoaiSach" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="WebBanSachModel.FK__ChiTietDo__MaDon__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="WebBanSachModel.FK__ChiTietDo__MaSac__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="WebBanSachModel.FK__DonHang__MaKH__239E4DCF" ManuallyRouted="false" />
+        <AssociationConnector Association="WebBanSachModel.FK__Sach__MaNXB__15502E78" ManuallyRouted="false" />
+        <AssociationConnector Association="WebBanSachModel.FK__Sach__MaTheLoai__164452B1" ManuallyRouted="false" />
+        <AssociationConnector Association="WebBanSachModel.FK__ThamGia__MaSach__1B0907CE" ManuallyRouted="false" />
+        <AssociationConnector Association="WebBanSachModel.FK__ThamGia__MaTacGi__1BFD2C07" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
